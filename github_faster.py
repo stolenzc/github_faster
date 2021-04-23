@@ -90,7 +90,7 @@ if __name__ == '__main__':
         lines = f.readlines()
         for i in range(len(lines)):
             line_list = re.split(r'[\s]{1,}', lines[i])
-            if line_list[0].startswith('#') and line_list[1] in domain_list or line_list[1] in image_list:
+            if not line_list[0].startswith('#') and (line_list[1] in domain_list or line_list[1] in image_list):
                 continue
             result_hosts.append(lines[i])
     for url, ip in url_ip_map.items():
